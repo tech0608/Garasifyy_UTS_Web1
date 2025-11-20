@@ -125,57 +125,49 @@ document.addEventListener('DOMContentLoaded', function() {
         images.forEach(img => {
             // Add loading state
             img.style.transition = 'opacity 0.5s ease, transform 0.3s ease';
-            img.style.opacity = '0';
             
-            // Create loading placeholder
-            const placeholder = document.createElement('div');
-            placeholder.className = 'loading-placeholder';
-            placeholder.style.width = img.style.width || '100%';
-            placeholder.style.height = img.style.height || '200px';
-            placeholder.style.borderRadius = '15px';
-            placeholder.style.position = 'absolute';
-            placeholder.style.top = '0';
-            placeholder.style.left = '0';
-            
-            // Wrap image in container if not already wrapped
-            if (!img.parentElement.classList.contains('img-container')) {
-                const container = document.createElement('div');
-                container.className = 'img-container';
-                container.style.position = 'relative';
-                container.style.display = 'inline-block';
-                container.style.width = '100%';
+            // Check if image is already loaded
+            if (img.complete && img.naturalHeight !== 0) {
+                img.style.opacity = '1';
+            } else {
+                img.style.opacity = '0';
                 
-                img.parentNode.insertBefore(container, img);
-                container.appendChild(img);
-                container.appendChild(placeholder);
+                // Add load event listener
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                    console.log('✅ Image loaded successfully:', this.src);
+                });
+                
+                // Add error event listener
+                img.addEventListener('error', function() {
+                    console.warn('⚠️ Image failed to load:', this.src);
+                    this.style.opacity = '1'; // Still show the fallback
+                });
             }
             
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-                placeholder.style.opacity = '0';
-                setTimeout(() => placeholder.remove(), 500);
-            });
-            
-            img.addEventListener('error', function() {
-                const fallback = document.createElement('div');
-                fallback.className = 'img-fallback';
-                fallback.innerHTML = '<i class="fas fa-car"></i><span>Image not available</span>';
-                fallback.style.width = this.style.width || '100%';
-                fallback.style.height = this.style.height || '200px';
+            // Add hover effects for gallery images
+            if (img.closest('.gallery-item')) {
+                img.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
                 
-                this.parentNode.replaceChild(fallback, this);
-                placeholder.remove();
-            });
-
-            // Add hover effects to loaded images
-            img.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-            });
-            
-            img.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-            });
+                img.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
         });
+        
+        // Force reload images if they haven't loaded after 5 seconds
+        setTimeout(() => {
+            images.forEach(img => {
+                if (img.style.opacity === '0') {
+                    console.log('🔄 Force reloading image:', img.src);
+                    const src = img.src;
+                    img.src = '';
+                    img.src = src;
+                }
+            });
+        }, 5000);
     }
 
     function addGlowEffects() {
@@ -532,22 +524,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Upgrade Performa Ekstrem',
                     content: `
                         <div class="service-intro">
-                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76d35899?auto=format&fit=crop&w=800&q=80" 
-                                 class="img-fluid rounded shadow mb-4" alt="Performance Engine Modification"
+                            <img src="https://images.unsplash.com/photo-1562141961-5a2e8dffba9d?auto=format&fit=crop&w=800&h=400&q=80" 
+                                 class="img-fluid rounded shadow mb-4" alt="High Performance Turbo Engine Modification"
                                  onerror="this.src='https://source.unsplash.com/800x400/?engine,turbo,performance'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3E🔧 ENGINE PERFORMANCE UPGRADE 🔧%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'16\' fill=\'white\'%3ETurbo • ECU • Cold Air Intake%3C/text%3E%3C/svg%3E'};">
                             <p class="lead">Tingkatkan performa mobil Anda dengan teknologi terdepan dan komponen berkualitas premium. 
                             Tim ahli kami akan mengoptimalkan setiap aspek mesin untuk memberikan daya dan torsi maksimal.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=640&q=80" 
-                                         class="img-fluid rounded shadow" alt="Turbocharger System"
+                                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=640&h=400&q=80" 
+                                         class="img-fluid rounded shadow" alt="High Performance Turbocharger System"
                                          onerror="this.src='https://source.unsplash.com/640x400/?turbocharger,engine-bay'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E🌪️ TURBO SYSTEM 🌪️%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3EHigh Performance Turbocharger%3C/text%3E%3C/svg%3E'};">
                                     <h6 class="text-center mt-2 text-danger">Turbocharger Installation</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=640&q=80" 
-                                         class="img-fluid rounded shadow" alt="ECU Tuning"
+                                    <img src="https://images.pexels.com/photos/3612932/pexels-photo-3612932.jpeg?auto=compress&cs=tinysrgb&w=640&h=400&fit=crop" 
+                                         class="img-fluid rounded shadow" alt="ECU Engine Tuning and Remapping"
                                          onerror="this.src='https://source.unsplash.com/640x400/?ecu,computer,tuning'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E💻 ECU TUNING 💻%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3EEngine Control Unit Remapping%3C/text%3E%3C/svg%3E'};">
                                     <h6 class="text-center mt-2 text-danger">ECU Remapping & Tuning</h6>
                                 </div>
@@ -596,22 +588,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Modifikasi Body Kit & Estetika',
                     content: `
                         <div class="service-intro">
-                            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
-                                 class="img-fluid rounded shadow mb-4" alt="Car Body Kit Modification"
+                            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&h=400&q=80" 
+                                 class="img-fluid rounded shadow mb-4" alt="Wide Body Extreme Car Modification"
                                  onerror="this.src='https://source.unsplash.com/800x400/?sports-car,body-kit'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3E🚗 CUSTOM BODY KIT STYLING 🚗%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'16\' fill=\'white\'%3EAerodynamic • Sporty • Aggressive%3C/text%3E%3C/svg%3E'};">
                             <p class="lead">Ubah penampilan mobil Anda menjadi lebih agresif dan sporty dengan body kit custom. 
                             Kami menggunakan material berkualitas tinggi dan desain yang telah teruji aerodinamisnya.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=640&q=80" 
-                                         class="img-fluid rounded shadow" alt="Wide Body Kit Car"
-                                         onerror="this.src='https://source.unsplash.com/640x400/?wide-body-car,aggressive-styling'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E🔥 WIDE BODY KIT 🔥%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3ECustom Fender Flares%3C/text%3E%3C/svg%3E'};">
-                                    <h6 class="text-center mt-2 text-danger">Wide Body Conversion</h6>
+                                    <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=640&h=400&q=80" 
+                                         class="img-fluid rounded shadow" alt="Wide Body Extreme Supercar"
+                                         onerror="this.src='https://source.unsplash.com/640x400/?wide-body-extreme,supercar'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Cg transform=\'translate(320,160)\'%3E%3Cpath d=\'M-120,-60 L-80,-80 L80,-80 L120,-60 L120,60 L80,80 L-80,80 L-120,60 Z\' fill=\'white\' opacity=\'0.3\'/%3E%3Cpath d=\'M-100,-50 L-70,-60 L70,-60 L100,-50 L100,50 L70,60 L-70,60 L-100,50 Z\' fill=\'white\'/%3E%3Ccircle cx=\'-60\' cy=\'50\' r=\'20\' fill=\'%23ff0040\'/%3E%3Ccircle cx=\'60\' cy=\'50\' r=\'20\' fill=\'%23ff0040\'/%3E%3Cpath d=\'M-80,-40 L80,-40 L60,-30 L-60,-30 Z\' fill=\'%23ff0040\'/%3E%3C/g%3E%3Ctext x=\'50%25\' y=\'75%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\' font-weight=\'bold\'%3E🏎️ WIDE BODY EXTREME 🏎️%3C/text%3E%3Ctext x=\'50%25\' y=\'85%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3EAggressive Aero Package%3C/text%3E%3C/svg%3E'};">
+                                    <h6 class="text-center mt-2 text-danger">Wide Body Extreme Conversion</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://picsum.photos/640/400?random=22" 
-                                         class="img-fluid rounded shadow" alt="Custom Paint Job"
+                                    <img src="https://images.unsplash.com/photo-1607603750916-e3d5ee2e38ca?auto=format&fit=crop&w=640&h=400&q=80" 
+                                         class="img-fluid rounded shadow" alt="Custom Car Paint and Vinyl Wrap"
                                          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3ECustom Paint%3C/text%3E%3C/svg%3E';">
                                     <h6 class="text-center mt-2 text-danger">Premium Paint & Graphics</h6>
                                 </div>
@@ -660,24 +652,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Interior, Audio & Kenyamanan',
                     content: `
                         <div class="service-intro">
-                            <img src="https://picsum.photos/800/400?random=30" 
-                                 class="img-fluid rounded shadow mb-4" alt="Interior Modification"
-                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3ELuxury Interior Design%3C/text%3E%3C/svg%3E';">
+                            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&h=400&q=80" 
+                                 class="img-fluid rounded shadow mb-4" alt="Car Interior with Super Audio System"
+                                 onerror="this.src='https://source.unsplash.com/800x400/?car-audio,luxury-interior'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Cg transform=\'translate(400,200)\'%3E%3Ccircle cx=\'-100\' cy=\'0\' r=\'40\' fill=\'white\' opacity=\'0.8\'/%3E%3Ccircle cx=\'0\' cy=\'-50\' r=\'50\' fill=\'white\' opacity=\'0.9\'/%3E%3Ccircle cx=\'100\' cy=\'0\' r=\'40\' fill=\'white\' opacity=\'0.8\'/%3E%3Ccircle cx=\'-100\' cy=\'0\' r=\'25\' fill=\'%23ff0040\'/%3E%3Ccircle cx=\'0\' cy=\'-50\' r=\'30\' fill=\'%23ff0040\'/%3E%3Ccircle cx=\'100\' cy=\'0\' r=\'25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'0\' y=\'80\' text-anchor=\'middle\' font-size=\'16\' fill=\'white\' font-weight=\'bold\'%3E♪♪♪ SUPER BASS ♪♪♪%3C/text%3E%3C/g%3E%3Ctext x=\'50%25\' y=\'85%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\' font-weight=\'bold\'%3E🎵 PREMIUM CAR AUDIO SYSTEM 🎵%3C/text%3E%3C/svg%3E'};";>
                             <p class="lead">Ciptakan pengalaman berkendara yang tak terlupakan dengan interior mewah dan sistem audio berkualitas tinggi. 
                             Setiap detail dirancang untuk kenyamanan dan gaya hidup Anda.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://picsum.photos/640/400?random=31" 
-                                         class="img-fluid rounded shadow" alt="Premium Leather Seats"
+                                    <img src="https://images.unsplash.com/photo-1555626906-fcf10d6c933c?auto=format&fit=crop&w=640&h=400&q=80" 
+                                         class="img-fluid rounded shadow" alt="Premium Racing Interior with Leather Seats"
                                          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3ECustom Seats%3C/text%3E%3C/svg%3E';">
                                     <h6 class="text-center mt-2 text-danger">Premium Leather Seats</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://picsum.photos/640/400?random=32" 
-                                         class="img-fluid rounded shadow" alt="Audio System"
-                                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3EAudio System%3C/text%3E%3C/svg%3E';">
-                                    <h6 class="text-center mt-2 text-danger">High-End Audio System</h6>
+                                    <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=640&h=400&q=80" 
+                                         class="img-fluid rounded shadow" alt="Car with Super Audio System Installation"ystem with Subwoofer"
+                                         onerror="this.src='https://source.unsplash.com/640x400/?subwoofer,speakers,audio'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Cg transform=\'translate(320,150)\'%3E%3Crect x=\'-80\' y=\'-50\' width=\'160\' height=\'100\' rx=\'10\' fill=\'white\' opacity=\'0.9\'/%3E%3Crect x=\'-70\' y=\'-40\' width=\'140\' height=\'80\' rx=\'5\' fill=\'%23ff0040\'/%3E%3Ccircle cx=\'-40\' cy=\'0\' r=\'15\' fill=\'white\'/%3E%3Ccircle cx=\'0\' cy=\'0\' r=\'20\' fill=\'white\'/%3E%3Ccircle cx=\'40\' cy=\'0\' r=\'15\' fill=\'white\'/%3E%3Ccircle cx=\'-40\' cy=\'0\' r=\'8\' fill=\'%23333\'/%3E%3Ccircle cx=\'0\' cy=\'0\' r=\'12\' fill=\'%23333\'/%3E%3Ccircle cx=\'40\' cy=\'0\' r=\'8\' fill=\'%23333\'/%3E%3C/g%3E%3Cg transform=\'translate(320,280)\'%3E%3Crect x=\'-60\' y=\'-30\' width=\'120\' height=\'60\' rx=\'8\' fill=\'white\' opacity=\'0.8\'/%3E%3Crect x=\'-50\' y=\'-20\' width=\'100\' height=\'40\' rx=\'5\' fill=\'%23333\'/%3E%3Ctext x=\'0\' y=\'5\' text-anchor=\'middle\' font-size=\'12\' fill=\'white\' font-weight=\'bold\'%3ESUPER BASS%3C/text%3E%3C/g%3E%3Ctext x=\'50%25\' y=\'90%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'18\' fill=\'white\' font-weight=\'bold\'%3E🔊 SUPER AUDIO SYSTEM 🔊%3C/text%3E%3C/svg%3E'};">
+                                    <h6 class="text-center mt-2 text-danger">Super Audio System</h6>
                                 </div>
                             </div>
                             
