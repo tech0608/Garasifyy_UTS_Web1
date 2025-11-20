@@ -361,7 +361,7 @@ Berikut adalah dokumentasi lengkap testing API menggunakan Postman untuk semua o
 #### POST /api/services - Create Service
 Membuat service baru dengan data lengkap.
 
-![POST Create Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/post-create-service.png)
+![POST Create Service](./screenshots/post-create-service.png)
 
 **Request Body:**
 ```json
@@ -392,7 +392,7 @@ Membuat service baru dengan data lengkap.
 #### GET /api/services - Read All Services
 Mengambil semua data services yang tersedia.
 
-![GET All Services](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/get-all-services.png)
+![GET All Services](./screenshots/get-all-services.png)
 
 **Response:**
 ```json
@@ -415,7 +415,7 @@ Mengambil semua data services yang tersedia.
 #### PUT /api/services/:id - Update Service
 Update data service existing berdasarkan ID.
 
-![PUT Update Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/put-update-service.png)
+![PUT Update Service](./screenshots/put-update-service.png)
 
 **Request Body:**
 ```json
@@ -445,7 +445,7 @@ Update data service existing berdasarkan ID.
 #### DELETE /api/services/:id - Delete Service
 Menghapus service berdasarkan ID.
 
-![DELETE Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/delete-service.png)
+![DELETE Service](./screenshots/delete-service.png)
 
 **Response:**
 ```json
