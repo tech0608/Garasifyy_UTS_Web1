@@ -2,8 +2,8 @@
 
 **UTS Web Programming 1**  
 **TIF RP-23 CNS A**  
-**Nama: [Nama Anda]**  
-**NIM: [NIM Anda]**
+**Nama: Luthfy Arief**  
+**NIM: 23552011045**
 
 ## 📋 Deskripsi Project
 
@@ -491,7 +491,7 @@ Authorization: Bearer <token>
 
 ## 👨‍💼 Team
 
-**Developer & Designer:** [Nama Anda]
+**Developer & Designer:** Luthfy Arief
 - Frontend Development
 - UI/UX Design  
 - Backend API Development
@@ -499,16 +499,14 @@ Authorization: Bearer <token>
 
 ## 📞 Kontak
 
-• **Email:** info@garasify.com
-• **Website:** [Garasify Local](http://localhost/utsweb1)
+• **Email:** lamulyana@gmail.com
 • **GitHub:** [tech0608](https://github.com/tech0608)
-• **Workshop:** Jl. Modifikasi Premium No. 123, Jakarta
 
 ## 📝 License
 
 This project is created for educational purposes as part of UTS Web Programming 1 assignment.
 
-**Developed with ❤️ by [Nama Anda]**  
+**Developed by Luthfy Arief**  
 **Universitas Teknologi Bandung (UTB)**
 
 ---
