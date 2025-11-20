@@ -532,35 +532,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Upgrade Performa Ekstrem',
                     content: `
                         <div class="service-intro">
-                            <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_1280.jpg" 
+                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76d35899?auto=format&fit=crop&w=800&q=80" 
                                  class="img-fluid rounded shadow mb-4" alt="Performance Engine Modification"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="img-fallback" style="display: none;">
-                                <i class="fas fa-cogs"></i>
-                                <span>Engine Performance Upgrade</span>
-                            </div>
+                                 onerror="this.src='https://source.unsplash.com/800x400/?engine,turbo,performance'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3E🔧 ENGINE PERFORMANCE UPGRADE 🔧%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'16\' fill=\'white\'%3ETurbo • ECU • Cold Air Intake%3C/text%3E%3C/svg%3E'};">
                             <p class="lead">Tingkatkan performa mobil Anda dengan teknologi terdepan dan komponen berkualitas premium. 
                             Tim ahli kami akan mengoptimalkan setiap aspek mesin untuk memberikan daya dan torsi maksimal.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2016/04/25/22/07/turbo-1352622_640.jpg" 
+                                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=640&q=80" 
                                          class="img-fluid rounded shadow" alt="Turbocharger System"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-fan"></i>
-                                        <span>Turbo System</span>
-                                    </div>
+                                         onerror="this.src='https://source.unsplash.com/640x400/?turbocharger,engine-bay'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E🌪️ TURBO SYSTEM 🌪️%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3EHigh Performance Turbocharger%3C/text%3E%3C/svg%3E'};">
                                     <h6 class="text-center mt-2 text-danger">Turbocharger Installation</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/automobile-1868726_640.jpg" 
+                                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=640&q=80" 
                                          class="img-fluid rounded shadow" alt="ECU Tuning"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-microchip"></i>
-                                        <span>ECU Tuning</span>
-                                    </div>
+                                         onerror="this.src='https://source.unsplash.com/640x400/?ecu,computer,tuning'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E💻 ECU TUNING 💻%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3EEngine Control Unit Remapping%3C/text%3E%3C/svg%3E'};">
                                     <h6 class="text-center mt-2 text-danger">ECU Remapping & Tuning</h6>
                                 </div>
                             </div>
@@ -608,35 +596,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Modifikasi Body Kit & Estetika',
                     content: `
                         <div class="service-intro">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/22/23/44/porsche-1851246_1280.jpg" 
-                                 class="img-fluid rounded shadow mb-4" alt="Body Kit Modification"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="img-fallback" style="display: none;">
-                                <i class="fas fa-car-side"></i>
-                                <span>Custom Body Kit Styling</span>
-                            </div>
+                            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
+                                 class="img-fluid rounded shadow mb-4" alt="Car Body Kit Modification"
+                                 onerror="this.src='https://source.unsplash.com/800x400/?sports-car,body-kit'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3E🚗 CUSTOM BODY KIT STYLING 🚗%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'16\' fill=\'white\'%3EAerodynamic • Sporty • Aggressive%3C/text%3E%3C/svg%3E'};">
                             <p class="lead">Ubah penampilan mobil Anda menjadi lebih agresif dan sporty dengan body kit custom. 
                             Kami menggunakan material berkualitas tinggi dan desain yang telah teruji aerodinamisnya.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2016/05/06/16/32/car-1376190_640.jpg" 
-                                         class="img-fluid rounded shadow" alt="Wide Body Kit"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-expand-arrows-alt"></i>
-                                        <span>Wide Body Kit</span>
-                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=640&q=80" 
+                                         class="img-fluid rounded shadow" alt="Wide Body Kit Car"
+                                         onerror="this.src='https://source.unsplash.com/640x400/?wide-body-car,aggressive-styling'; this.onerror=function(){this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3E🔥 WIDE BODY KIT 🔥%3C/text%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'14\' fill=\'white\'%3ECustom Fender Flares%3C/text%3E%3C/svg%3E'};">
                                     <h6 class="text-center mt-2 text-danger">Wide Body Conversion</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2020/05/24/10/55/car-5211808_640.jpg" 
+                                    <img src="https://picsum.photos/640/400?random=22" 
                                          class="img-fluid rounded shadow" alt="Custom Paint Job"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-palette"></i>
-                                        <span>Custom Paint</span>
-                                    </div>
+                                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3ECustom Paint%3C/text%3E%3C/svg%3E';">
                                     <h6 class="text-center mt-2 text-danger">Premium Paint & Graphics</h6>
                                 </div>
                             </div>
@@ -684,35 +660,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: 'Interior, Audio & Kenyamanan',
                     content: `
                         <div class="service-intro">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/19/11/26/automotive-1838744_1280.jpg" 
+                            <img src="https://picsum.photos/800/400?random=30" 
                                  class="img-fluid rounded shadow mb-4" alt="Interior Modification"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="img-fallback" style="display: none;">
-                                <i class="fas fa-couch"></i>
-                                <span>Luxury Interior Design</span>
-                            </div>
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'24\' fill=\'white\'%3ELuxury Interior Design%3C/text%3E%3C/svg%3E';">
                             <p class="lead">Ciptakan pengalaman berkendara yang tak terlupakan dengan interior mewah dan sistem audio berkualitas tinggi. 
                             Setiap detail dirancang untuk kenyamanan dan gaya hidup Anda.</p>
                             
                             <div class="row my-4">
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2014/07/10/17/18/bmw-389978_640.jpg" 
+                                    <img src="https://picsum.photos/640/400?random=31" 
                                          class="img-fluid rounded shadow" alt="Premium Leather Seats"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-chair"></i>
-                                        <span>Custom Seats</span>
-                                    </div>
+                                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3ECustom Seats%3C/text%3E%3C/svg%3E';">
                                     <h6 class="text-center mt-2 text-danger">Premium Leather Seats</h6>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <img src="https://cdn.pixabay.com/photo/2017/07/02/19/24/ferrari-2464358_640.jpg" 
+                                    <img src="https://picsum.photos/640/400?random=32" 
                                          class="img-fluid rounded shadow" alt="Audio System"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="img-fallback" style="display: none;">
-                                        <i class="fas fa-volume-up"></i>
-                                        <span>Audio System</span>
-                                    </div>
+                                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'640\' height=\'400\' viewBox=\'0 0 640 400\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ff0040\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'central\' text-anchor=\'middle\' font-size=\'20\' fill=\'white\'%3EAudio System%3C/text%3E%3C/svg%3E';">
                                     <h6 class="text-center mt-2 text-danger">High-End Audio System</h6>
                                 </div>
                             </div>
