@@ -76,11 +76,17 @@ utsweb1/
 │   └── form-fixes.css         # Form styling fixes
 ├── js/                        # JavaScript files
 │   └── script.js              # Main script dengan particle animations
+├── screenshots/               # API Testing Screenshots
+│   ├── post-create-service.png  # POST method testing
+│   ├── get-all-services.png     # GET method testing
+│   ├── put-update-service.png   # PUT method testing
+│   └── delete-service.png       # DELETE method testing
 ├── index.html                 # Homepage utama
 ├── login.html                 # Login page
 ├── register.html              # Registration page  
 ├── dashboard.html             # User dashboard
 ├── detail.html                # Service detail page
+├── Garasify_API_Collection.postman_collection.json  # Postman collection
 └── README.md                  # Project documentation
 ```
 
@@ -191,6 +197,25 @@ Website ini dioptimalkan untuk berbagai ukuran layar:
 
 ## 📊 API Documentation
 
+### Postman Collection
+
+Untuk memudahkan testing, kami menyediakan Postman Collection yang dapat diimport:
+
+1. **Download Collection**: `Garasify_API_Collection.postman_collection.json`
+2. **Import ke Postman**: File → Import → Select file
+3. **Setup Environment**: 
+   - Variable: `baseUrl` = `http://localhost:3000`
+   - Variable: `serviceId` = (auto-generated dari testing)
+
+### API Testing Workflow
+
+#### Complete CRUD Testing Flow:
+1. **Health Check** - `GET /health` - Verify server status
+2. **Create Service** - `POST /api/services` - Create test data
+3. **Read Services** - `GET /api/services` - Verify creation
+4. **Update Service** - `PUT /api/services/:id` - Modify data
+5. **Delete Service** - `DELETE /api/services/:id` - Clean up
+
 ### Authentication Endpoints
 
 #### POST /api/auth/register
@@ -233,6 +258,42 @@ Mengambil data semua layanan.
       "price": "Mulai dari Rp 15.000.000"
     }
   ]
+}
+```
+
+#### POST /api/services
+Membuat service baru.
+
+**Body:**
+```json
+{
+  "name": "Custom Service",
+  "category": "Performance",
+  "description": "Service description",
+  "basePrice": 15000000
+}
+```
+
+#### PUT /api/services/:id
+Update service existing.
+
+**Body:**
+```json
+{
+  "name": "Updated Service Name",
+  "basePrice": 20000000,
+  "popular": true
+}
+```
+
+#### DELETE /api/services/:id
+Menghapus service berdasarkan ID.
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Service berhasil dihapus"
 }
 ```
 
@@ -293,7 +354,121 @@ Mengambil data mobil yang dimodifikasi.
 }
 ```
 
-### Sample API Requests
+### API Testing dengan Postman
+
+Berikut adalah dokumentasi lengkap testing API menggunakan Postman untuk semua operasi CRUD:
+
+#### POST /api/services - Create Service
+Membuat service baru dengan data lengkap.
+
+![POST Create Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/post-create-service.png)
+
+**Request Body:**
+```json
+{
+  "name": "CRUD Test Service",
+  "category": "Performance",
+  "description": "Service khusus untuk testing operasi CRUD lengkap",
+  "basePrice": 15000000,
+  "duration": "3-5 hari",
+  "difficulty": "Intermediate"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Service berhasil ditambahkan",
+  "data": {
+    "id": "8ab91133-f2d9-4853-be6c-2b169936f6d",
+    "name": "CRUD Test Service",
+    "category": "Performance",
+    "basePrice": 15000000
+  }
+}
+```
+
+#### GET /api/services - Read All Services
+Mengambil semua data services yang tersedia.
+
+![GET All Services](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/get-all-services.png)
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Data service berhasil diambil",
+  "data": [
+    {
+      "id": "c20dbfdc-9a02-4d91-af81-34782d20c9f5",
+      "name": "Engine Performance Tuning",
+      "category": "Performance",
+      "description": "Complete engine tuning untuk maksimalkan performa mesin",
+      "basePrice": 25000000,
+      "popular": true
+    }
+  ]
+}
+```
+
+#### PUT /api/services/:id - Update Service
+Update data service existing berdasarkan ID.
+
+![PUT Update Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/put-update-service.png)
+
+**Request Body:**
+```json
+{
+  "name": "CRUD Test Service - UPDATED",
+  "basePrice": 20000000,
+  "popular": true,
+  "difficulty": "Advanced",
+  "description": "Service yang sudah diupdate via PUT method - testing berhasil!"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Data service berhasil diupdate",
+  "data": {
+    "id": "8ab91133-f2d9-4853-be6c-2b169936f6d",
+    "name": "CRUD Test Service - UPDATED",
+    "basePrice": 20000000,
+    "popular": true
+  }
+}
+```
+
+#### DELETE /api/services/:id - Delete Service
+Menghapus service berdasarkan ID.
+
+![DELETE Service](https://github.com/tech0608/Garasifyy_UTS_Web1/blob/main/screenshots/delete-service.png)
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Service berhasil dihapus",
+  "data": {
+    "id": "8ab91133-f2d9-4853-be6c-2b169936f6d",
+    "name": "CRUD Test Service - UPDATED"
+  }
+}
+```
+
+### Testing Results Summary
+
+| Method | Endpoint | Status | Response Time | Test Result |
+|--------|----------|--------|---------------|-------------|
+| POST | `/api/services` | ✅ 201 Created | 5 ms | ✅ Success |
+| GET | `/api/services` | ✅ 200 OK | 7 ms | ✅ Success |
+| PUT | `/api/services/:id` | ✅ 200 OK | 5 ms | ✅ Success |
+| DELETE | `/api/services/:id` | ✅ 200 OK | 6 ms | ✅ Success |
+
+### Sample API Requests untuk Testing Manual
 
 **Create New Service:**
 ```bash
@@ -301,10 +476,10 @@ POST http://localhost:3000/api/services
 Content-Type: application/json
 
 {
-  "title": "Suspension Upgrade",
+  "name": "Suspension Upgrade",
+  "category": "Performance",
   "description": "Premium coilover dan stabilizer upgrade",
-  "price": "Rp 12.000.000",
-  "category": "performance"
+  "basePrice": 12000000
 }
 ```
 
